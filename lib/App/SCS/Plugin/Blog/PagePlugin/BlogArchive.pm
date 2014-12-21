@@ -1,13 +1,18 @@
-package App::SCS::Plugin::Blog::PagePlugin::Archive;
+package App::SCS::Plugin::Blog::PagePlugin::BlogArchive;
 
 use Moo;
 use Data::Dumper;
 
 with 'App::SCS::Role::PagePlugin';
 
-has config => (
+has max_depth => (
   is => 'ro',
-  required => 1,
+  default => 1,
+);
+
+has min_depth => (
+  is => 'ro',
+  default => 1,
 );
 
 sub _selector { '.BlogList' }
@@ -23,7 +28,8 @@ sub filter_content_zoom {
 
 sub BUILD {
   my $self = shift;
-  print Dumper $self->config;
+  print Dumper $self->max_depth;
+  print Dumper $self->min_depth;
 
 }
 
