@@ -9,9 +9,4 @@ sub page_plugins {
   BlogArchive => 'App::SCS::Plugin::Blog::PagePlugin::BlogArchive',
 }
 
-sub default_page_plugins {
-  my $self = shift;
-  BlogArchive => {},
-}
-
 1;

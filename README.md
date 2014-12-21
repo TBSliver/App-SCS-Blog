@@ -3,12 +3,13 @@
 add the following to the plugins array:
 
 ```
-Blog => {
-  archive => {
-    min_depth => 5,
-    max_depth => 1,
-  }
-}
+Blog => {}
+```
+
+And then add the following to the head of your Archive page:
+
+```
+<meta name="plugins" content="BlogArchive, { max_depth: 3, min_depth: 1 }" />
 ```
 
 Changing settings as needed
