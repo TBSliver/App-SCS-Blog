@@ -53,11 +53,4 @@ sub _filter_callback {
   };
 }
 
-sub BUILD {
-  my $self = shift;
-  print Dumper $self->max_depth;
-  print Dumper $self->min_depth;
-
-}
-
 1;
