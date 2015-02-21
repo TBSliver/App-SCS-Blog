@@ -15,6 +15,11 @@ has min_depth => (
   default => 1,
 );
 
+has sub_dir => (
+  is => 'ro',
+  default => undef,
+);
+
 sub _selector { '.BlogList' }
 
 sub filter_content_zoom {
@@ -35,6 +40,10 @@ sub _filter_callback {
       min_depth => $self->min_depth,
       max_depth => $self->max_depth,
     );
+
+    if ( defined $self->sub_dir ) {
+      $args{base_dir} = $page->_my_path->catdir( $self->sub_dir );
+    }
 
     $stream->select($self->_selector)->repeat_content(
       $page->children(%args)->latest()->map(
